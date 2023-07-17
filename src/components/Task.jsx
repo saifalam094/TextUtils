@@ -18,6 +18,14 @@ const handleLower=()=>{
 const handleClear=()=>{
     setText("") 
 }
+const handleCopy=()=>{
+  navigator.clipboard.writeText(Text).then(()=>{
+    alert("copied clipboard successfully")
+  }).catch((error)=>{
+    console.log("error while copying",error)
+  })
+ 
+}
 
 
 
@@ -33,6 +41,8 @@ const[Text,setText]=useState("Enter the text here")
   <button type="button " className="btn btn-primary my-3 mx-4" onClick={handleClick}>click to uppercase</button>
   <button type="button" className="btn btn-primary my-3 mx-4  " onClick={handleLower}>click to lowercase</button>
   <button type="button" className="btn btn-primary my-3 mx-4  " onClick={handleClear}>Clear text</button>
+  <button type="button" className="btn btn-primary my-3 mx-4  " onClick={handleCopy}>copy text</button>
+
 </div>
  <div className="container">
   <h3>Text Summary</h3>
